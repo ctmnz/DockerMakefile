@@ -23,5 +23,6 @@ mysqlbackupdb:
 mysqlrestoredb:
 	sudo docker run -ti --rm --link $(NAME):db -v $(shell pwd):/backup mysql mysql -h db -u root -p$(PASS) --execute="source /backup/$(SQLFILE)" $(DATABASE)
 
-
+mysqlcreatedb:
+	sudo docker run -ti --rm --link $(NAME):db  mysql mysql -h db -u root -p$(PASS) --execute="CREATE DATABASE IF NOT EXISTS $(DATABASE)"
 

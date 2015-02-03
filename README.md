@@ -29,4 +29,10 @@ Restore one database from your mysql server
 
 $ make mysqlrestoredb  NAME="wp.db" PASS="wppass" SQLFILE="wordpress.sql-20150203023814" DATABASE="wordpress"
 
+Create databse
+
+$ make mysqlcreatedb NAME="wp.db" PASS="wppass" DATABASE="otherdatabasename"
+
+
+
 
