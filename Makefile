@@ -9,7 +9,7 @@ test:
 	echo mysqlcontainer fullmysqlrestore fullmysqlbackup
 
 mysqlcontainer:
-	sudo docker run -ti -d --name $(NAME)-$(NOW) -e MYSQL_ROOT_PASSWORD=$(PASS) mysql
+	sudo docker run -ti -d --name $(NAME) -e MYSQL_ROOT_PASSWORD=$(PASS) mysql
 
 mysqlrestorefull:
 	sudo docker run -ti --rm --link $(NAME):db -v $(shell pwd):/backup mysql mysql -h db -u root -p$(PASS) --execute="source /backup/$(FULLSQLFILE)" 
